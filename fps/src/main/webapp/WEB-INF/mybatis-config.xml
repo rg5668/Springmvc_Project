@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- /jspStudy2/src/mapper/mybatis-config.xml -->
+<!DOCTYPE configuration PUBLIC "-//mybatis.org/DTD config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<settings>
+
+		<setting value="NULL" name="jdbcTypeForNull" />
+
+	</settings>
+	<typeAliases>
+		<typeAlias type="model.Hotel4s" alias="hotel4s" />
+		<typeAlias type="model.Board" alias="board" />
+		<typeAlias type="model.Member" alias="member" />
+		<typeAlias type="model.Hotel_Sub4s" alias="hotel_sub4s" />
+		<typeAlias alias="arrHotel4s" type="model.ArrHotel4s" />
+
+		<typeAlias alias="hotel4s_join_hotel_sub4s"
+			type="model.Hotel4s_Join_Hotel_Sub4s" />
+	</typeAliases>
+
+	<mappers>
+		<!-- <mapper resource="mapper/BoardMapper.xml"/> <mapper resource="mapper/MemberMapper.xml"/> 
+			<mapper class="mapper.MemberMapper"/> -->
+		<mapper class="mapper.FpsMapper" />
+		<mapper class="mapper.BoardMapper" />
+		<mapper class="mapper.HotelMapper" />
+		<mapper class="mapper.MemberMapper" />
+		<mapper class="mapper.AdminMapper"/>
+		<mapper class="mapper.ReservationMapper" />
+
+	</mappers>
+</configuration>

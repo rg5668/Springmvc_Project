@@ -1,0 +1,52 @@
+
+.container{
+	margin: 0 auto;
+}
+
+
+
+ul.tabs{
+	margin: 0px;
+	padding: 0px;
+	
+	list-style: none;
+}
+ul.tabs li{
+	
+background: none;
+	color: #222;
+	display: inline-block;
+	padding: 10px 10px;
+	cursor: pointer;
+	padding-left:4%;
+	padding-right:4%
+}
+
+ul.tabs li.current{
+	background: #ededed;
+	color: #222;
+}
+p,h3
+{
+	margin: 0;
+}
+.tab-content{
+	display: none;
+
+}
+
+.tab-content.current{
+	display: inherit;
+}
+
+  
+.review th,.review td {
+	border : 3px solid #bcbcbc;
+	text-align: center;  	padding : 8px;
+}
+.review th {    background-color: #4CAF50; 	color : white;   }
+.review td {	background-color: #F2F2F2}
+.review caption {
+	color : #111111; 	font-size: 20px;
+	background-color: #bcbcbc;
+}

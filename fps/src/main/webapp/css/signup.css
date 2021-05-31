@@ -1,0 +1,106 @@
+table tr td {
+	text-align: left;
+}
+
+table tr td input[name=tel] {
+	
+}
+table tr td input[name=addr] {
+	/* {속성값 !important } 우선순위 지정 */
+}
+
+.ui-datepicker select {
+	vertical-align: middle;
+	height: 28px;
+}
+	
+.valid, .invalid { 
+	font-size: 11px;
+	font-weight: bold; 
+}
+
+.valid { color: green; }
+
+.invalid { color: red; }	
+
+body {
+	margin: 0 auto;
+	text-align: center;
+	font-size: 16px;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+#content {
+	padding: 20px 0;
+	min-width: 1024px;	/* 창의 최소 크기 지정 */
+}
+
+table {
+	width: 30%;
+	margin-left: 35%;
+	margin-top: 5%;
+	border: 0px solid;
+	border-collapse: collapse;	/* 테두리 겹침 설정 collapse: 겹치지 않게 처리 */
+}
+
+.btn-fill, h1{
+	margin: 0 auto;
+}
+
+table th, table td {
+	border: 0px solid;
+	padding: 10px 10px;
+}
+
+table td a:hover { font-weight: bold; }
+
+.btnSet { margin-top: 20px;	}
+
+a.btn-fill, a.btn-empty {
+	text-align: center;
+	padding: 3px 10px;
+	border:1px solid black;
+	border-radius: 3px;
+	box-shadow: 2px 2px 3px #022d72;
+	/* 오른쪽, 아래쪽, 번진 정도 */
+}
+
+a.btn-fill { 
+	background-color: black;
+	color: #fff;
+}
+
+ a.btn-fill-s {
+	text-align: center;
+	padding: 2px 10px;
+	margin-left : 5px;
+	border:1px solid #c4dafc
+	border-radius: 3px;
+	
+	color: white;
+	font-size: 13px;
+} 
+
+a.btn-fill-s { 
+	background-color: black;
+}
+
+.btnSet a:not(:first-child) {
+	margin-left: 3px;
+}
+
+a:hover { cursor:pointer; }
+
+.w-pct60 { width: 50%; }
+.w-pct70 { width: 70%; }
+.w-pct80 { width: 80%; }
+.w-px40 { width: 40px; }
+.w-px60 { width: 60px; }
+.w-px80 { width: 80px; }
+.w-px100 { width: 100px; }
+.w-px120 { width: 120px; }
+.w-px140 { width: 140px; }
+.w-px160 { width: 160px; }
+.w-px180 { width: 180px; }
+.w-px200 { width: 200px; }
+.w-px300 { width: 300px }
+.w-px600 { width: 600px; }

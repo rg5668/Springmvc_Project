@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans	xmlns="http://www.springframework.org/schema/beans"
+		xmlns:mvc="http://www.springframework.org/schema/mvc"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/mvc
+			http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	
+	
+	<!-- 패키지 전체를 읽는거 -->
+	<mvc:annotation-driven/>
+		<context:component-scan base-package="controller,service"/>
+	<mvc:default-servlet-handler/>
+	
+	<mvc:view-controller path="/index" view-name="index"/>
+	
+	<!-- 컨테이너에서 추가하는 방법도 있다(writeForm) -->
+		<!-- <mvc:view-controller path="/board/writeForm" view-name="board/writeForm"/>
+	
+		<mvc:view-controller path="/member/joinForm" view-name="/member/joinForm"/>
+		<mvc:view-controller path="/member/loginForm" view-name="/member/loginForm"/> -->
+		
+		<!-- <mvc:view-controller path="/fps/mainForm" view-name="fps/mainForm"/> -->
+		
+		<!-- 헤더푸터 제외하고 받으려면 -->
+		<mvc:view-controller path="/member/pictureimgForm" view-name="/single/pictureimgForm"/>
+		<mvc:view-controller path="/board/writeForm" 	view-name="board/writeForm" />
+		<mvc:view-controller path="/board/freQuestionForm" 	view-name="board/freQuestionForm" />
+<mvc:view-controller path="/SignupForm"		view-name="fps/SignupForm" />
+	<mvc:view-controller path="/loginForm"		view-name="fps/loginForm" />
+	<mvc:view-controller path="/loginout"		view-name="fps/loginout" />
+	<mvc:view-controller path="/id_findForm"		view-name="fps/id_findForm" />
+	<mvc:view-controller path="/id_confirmForm"		view-name="fps/id_confirmForm" />
+	<mvc:view-controller path="/pass_findForm"		view-name="fps/pass_findForm" />
+	<mvc:view-controller path="/pass_confirmForm"		view-name="fps/pass_confirmForm" />
+	<!-- 자동으로 붙여주는거 .jsp-->
+	
+	<mvc:view-controller path="/admin/pictureimgForm" view-name="/single/pictureimgForm"/>
+	<mvc:view-controller path="/admin/subpictureimgForm" view-name="/single/subpictureimgForm"/>
+	
+	<mvc:resources location="/WEB-INF/view/images/" mapping="/images/**" cache-period="60"/>
+	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/view/" />
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	
+	<!-- 이미지 넣는 경로 -->
+	<mvc:resources location="/WEB-INF/view/images/" mapping="/images/**" cache-period="60"/>
+	
+
+	
+	<!-- MultipartHttpServletRequest를 쓰려면 빈에 추가해야함 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	
+	
+	<!-- mybatis컨테이너에 넣는 것 -->
+	
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass"><value>oracle.jdbc.OracleDriver</value></property>
+		<property name="jdbcUrl"><value>jdbc:oracle:thin:@localhost:1521:xe</value></property>
+		<property name="user"><value>kic</value></property>
+		<property name="password"><value>1111</value></property>
+		<property name="maxPoolSize"><value>20</value></property>
+		<property name="minPoolSize"><value>3</value></property>
+		<property name="initialPoolSize"><value>5</value></property>
+		<property name="acquireIncrement"><value>5</value></property>
+	</bean>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="/WEB-INF/mybatis-config.xml"/>
+	</bean>
+	
+	<bean id="sqlSessionTemlate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory"/>
+	</bean>
+</beans>

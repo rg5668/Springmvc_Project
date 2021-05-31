@@ -1,0 +1,138 @@
+.navbar-brands {height:70px; margin:0 0 30px 0; padding:0; }
+
+.navbar-fixed-top {
+  border: 0;
+  
+}
+.navbar-inverse { background:#fff;border:0;  }
+.navbar-inverse li { list-style:none; display:inline; }
+
+
+
+.categories { font-family: "Lato", sans-serif; }
+.categories ul { margin: 0; border-top: 1px solid #eee; padding-left: 11px; border-bottom: 2px solid #eee; padding-top: 15px; padding-bottom: 15px; }
+.categories li { margin-right: 30px;  }
+.categories li a{ font-size: 1em; color: #666;}
+.categories li a:hover { color:#CC2B55;}
+.categories button { margin-left: 10px;}
+
+
+
+.sidenav {
+	height: 100%;
+    background-color: #000;
+    overflow-x: hidden;
+    
+}
+.main {
+    padding: 0px 10px;
+    margin-left: 10px;
+}
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 70px;}
+}
+
+@media screen and (max-width: 450px) {
+    .service-form{
+        margin-top: 10%;
+    }
+}
+
+@media screen and (min-width: 768px){
+	.main{
+        margin-left: 50%; 
+    }
+    .sidenav{
+        width: 40%;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+
+    .service-form{
+        margin-top: 10%;
+    }
+}
+.service-main-text{
+    
+    padding: 60px;
+    color: #fff;
+}
+.service-text{
+    margin-top: 20%;
+    padding: 60px;
+    color: #fff;
+}
+.service-form-text{
+    margin-top: 20%;
+    padding: 60px;
+    color: #000;
+}
+.service-text h2{
+    font-weight: 300;
+}
+
+.btn-black{
+    background-color: #000 !important;
+    color: #fff;
+}
+.btn {
+  position:relative;
+  left:30%;
+  transform: translateX(-50%);
+  margin-bottom: 10px;
+  width:50%;
+  height:40px;
+  background: black;
+  background-position: left;
+  background-size: 100%;
+  color:white;
+  font-weight: bold;
+  border:none;
+  cursor:pointer;
+  transition: 0.4s;
+  display:inline;
+}
+.btn2 {
+  position:relative;
+  left:12%;
+  transform: translateX(-50%);
+  margin-bottom: 10px;
+  width:30%;
+  height:25px;
+  background: black;
+  background-position: left;
+  background-size: 100%;
+  color:white;
+  font-weight: bold;
+  border:none;
+  cursor:pointer;
+  transition: 0.4s;
+  display:inline;
+}
+td, tr {
+ height: 20px;
+  
+  margin: 5px;
+}
+a{
+	text-decoration-line:none;
+}
+.btn3 {
+  position:relative;
+  left:30%;
+  transform: translateX(-50%);
+  margin-bottom: 10px;
+  width:30%;
+  height:30px;
+  background: white;
+  background-position: left;
+  background-size: 100%;
+  color:black;
+  font-weight: bold;
+  border:none;
+  cursor:pointer;
+  transition: 0.4s;
+  display:inline;
+}

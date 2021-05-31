@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>fps</display-name>
+
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>/view/fps/*</url-pattern>
+			<url-pattern>/view/board/*</url-pattern>
+			<url-pattern>/view/hotel/*</url-pattern>
+			<url-pattern>/view/member/*</url-pattern>
+			<url-pattern>/view/reservation/*</url-pattern>
+			<url-pattern>/view/admin/*</url-pattern>
+			<include-prelude>/common/head3.jsp</include-prelude>
+			<include-coda>/common/footer.jsp</include-coda>
+		</jsp-property-group>
+	</jsp-config>
+
+	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>
+				/WEB-INF/fps.xml
+			</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>euc-kr</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+</web-app>
