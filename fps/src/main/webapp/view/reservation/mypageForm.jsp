@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 
@@ -46,6 +47,42 @@
 				</h6></td>
 			<td>${mem.addr}</td>
 		</tr>
+		<tr>
+			<td style="width: 120px;"><h6>
+					<b>보유쿠폰</b>
+				</h6></td>
+			<td><select>
+			<c:if test="${empty cpn}">
+			<option>보유쿠폰없음</option>
+			</c:if>
+			<c:forEach var="c" items="${cpn}">
+			<option>${c.cpn_content }</option>
+			</c:forEach>
+			</select></td><td><a
+				href="addcpnForm"><input type="button"
+					class="w3-button w3-black" style="width: 120px;" name="update"
+					value="쿠폰 등록하기"></a></td>
+		</tr>
+		<%-- <tr>
+			<td style="width: 120px;"><h6>
+					<b>등록된 카드</b>
+				</h6></td>
+			<td><select name="card_num">
+			<c:if test="${empty card}">
+			<option>등록된 카드 없음</option>
+			</c:if>
+			<c:forEach var="c" items="${card}">
+			<option value=${c.card_num }>${c.company }-${c.card_num }</option>
+			</c:forEach>
+			</select></td><td><a
+				href="addcardForm"><input type="button"
+					class="w3-button w3-black" style="width: 120px;" name="update"
+					value="카드 등록하기"></a></td>
+					<td><a
+				href="addcardForm"><input type="button"
+					class="w3-button w3-black" style="width: 120px;" name="update"
+					value="카드 삭제하기"></a></td>
+		</tr> --%>
 		<tr>
 			<td colspan="2" align="center"><a
 				href="updateForm?user_id=${login}"><input type="button"

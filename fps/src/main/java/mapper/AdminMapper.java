@@ -25,6 +25,9 @@ public interface AdminMapper {
 	@Select("select * from hotel4s")
 	List<Hotel4s> hlist();
 	
+	@Select("select * from hotel4s where hotel_name like '%'||#{hotel_name}||'%'")
+	List<Hotel4s> search(String hotel_name);
+	
 	@Update("update hotel4s set theme_code=#{theme_code}, hotel_option1=#{hotel_option1}, hotel_option2=#{hotel_option2}, hotel_name=#{hotel_name}, area_code=#{area_code}, hotel_tel=#{hotel_tel}, hotel_addr=#{hotel_addr}, hotel_intro=#{hotel_intro} where hotel_code=#{hotel_code}")
 	int hupdate(Hotel4s hotel4s);
 	

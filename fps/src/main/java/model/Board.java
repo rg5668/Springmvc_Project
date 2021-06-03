@@ -6,7 +6,7 @@ import java.util.Date;
 public class Board {
 	private int board_seq;
 	private String board_code;
-	private int hotel_grade;
+	private float hotel_grade;
 	private String hotel_code;
 	private String user_id;
 	private String board_pass;
@@ -16,6 +16,9 @@ public class Board {
 	private Date regdate;
 	private int readcnt;
 	private int ref;
+	private int res_seq;
+
+
 	private int reflevel;
 	private int refstep;
 	private int reply_chk;
@@ -37,11 +40,12 @@ public class Board {
 		this.board_code = board_code;
 	}
 
-	public int getHotel_grade() {
+
+	public float getHotel_grade() {
 		return hotel_grade;
 	}
 
-	public void setHotel_grade(int hotel_grade) {
+	public void setHotel_grade(float hotel_grade) {
 		this.hotel_grade = hotel_grade;
 	}
 
@@ -56,6 +60,14 @@ public class Board {
 
 	public String getUser_id() {
 		return user_id;
+	}
+
+	public int getRes_seq() {
+		return res_seq;
+	}
+
+	public void setRes_seq(int res_seq) {
+		this.res_seq = res_seq;
 	}
 
 	public void setUser_id(String user_id) {
@@ -157,9 +169,11 @@ public class Board {
 		return "Board [board_seq=" + board_seq + ", board_code=" + board_code + ", hotel_grade=" + hotel_grade
 				+ ", hotel_code=" + hotel_code + ", user_id=" + user_id + ", board_pass=" + board_pass + ", subject="
 				+ subject + ", content=" + content + ", file1=" + file1 + ", regdate=" + regdate + ", readcnt="
-				+ readcnt + ", ref=" + ref + ", reflevel=" + reflevel + ", refstep=" + refstep + ", reply_chk="
-				+ reply_chk + "]";
+				+ readcnt + ", ref=" + ref + ", res_seq=" + res_seq + ", reflevel=" + reflevel + ", refstep=" + refstep
+				+ ", reply_chk=" + reply_chk + "]";
 	}
+
+	
 
 
 

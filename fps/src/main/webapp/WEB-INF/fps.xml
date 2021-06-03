@@ -38,6 +38,8 @@
 	<mvc:view-controller path="/id_confirmForm"		view-name="fps/id_confirmForm" />
 	<mvc:view-controller path="/pass_findForm"		view-name="fps/pass_findForm" />
 	<mvc:view-controller path="/pass_confirmForm"		view-name="fps/pass_confirmForm" />
+	<!-- <mvc:view-controller path="/reservation/addcardForm"		view-name="reservation/addcardForm" /> -->
+	<mvc:view-controller path="/reservation/addcpnForm"		view-name="reservation/addcpnForm" />
 	<!-- 자동으로 붙여주는거 .jsp-->
 	
 	<mvc:view-controller path="/admin/pictureimgForm" view-name="/single/pictureimgForm"/>

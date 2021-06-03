@@ -11,14 +11,20 @@ import model.Hotel4s;
 import model.Hotel4s_Join_Hotel_Sub4s;
 import model.Hotel_Sub4s;
 import service.FpsDaoMybatis;
+import service.HotelDaoMybatis;
 
 @Controller
 public class FpsController {
 	@Autowired
 	FpsDaoMybatis dao;
-
+	@Autowired
+	HotelDaoMybatis mdao;
+	
 	@RequestMapping("mainForm") 
 	private String mainForm(Model m) {
+	
+		mdao.resStatus1();
+		mdao.resStatus2();
 		return "fps/mainForm"; 
 	}
 

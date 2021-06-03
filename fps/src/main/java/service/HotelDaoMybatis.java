@@ -40,6 +40,8 @@ public class HotelDaoMybatis {
 		return sqlSession.getMapper(HotelMapper.class).hotelgrade(hotel_code);
 	}
 	
+	public 	void resStatus1() {}
+	public 	void resStatus2() {}
 	
 	  public List<Hotel_Res> hotelrescheck(Guest_Date gd,String hotel_code) {
 	  Map<String, Object> map=new HashMap<>(); 

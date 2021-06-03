@@ -79,31 +79,7 @@
 			<td>주소</td>
 			<td>${res.hotel_addr}</td>
 		</tr>
-		<tr>
-			<td colspan="2">
-				<h4>결제 내역</h4>
-			</td>
-		</tr>
-		<tr>
-			<td>결제수단</td>
-			<td>결제 시스템</td>
-		</tr>
-		<tr>
-			<td>쿠폰 사용금액</td>
-			<td>결제 시스템</td>
-		</tr>
-		<tr>
-			<td>포인트 사용금액</td>
-			<td>결제 시스템</td>
-		</tr>
-		<tr>
-			<td>PG 결제금액</td>
-			<td>결제 시스템</td>
-		</tr>
-		<tr>
-			<td>통신사 할인</td>
-			<td>결제 시스템</td>
-		</tr>
+	
 	</table>
 
 </body>

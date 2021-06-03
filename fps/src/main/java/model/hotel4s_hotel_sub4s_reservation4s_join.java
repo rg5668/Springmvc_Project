@@ -18,6 +18,8 @@ public class hotel4s_hotel_sub4s_reservation4s_join {
 	}
 	private int res_seq;        
 	private String res_status; 
+	private String res_date; 
+
 	private String sdate;            
 	private String edate;          
 	private int guest;        
@@ -33,6 +35,12 @@ public class hotel4s_hotel_sub4s_reservation4s_join {
     private String hotel_addr;
     private String x;
     private String y;
+	public String getRes_date() {
+		return res_date;
+	}
+	public void setRes_date(String res_date) {
+		this.res_date = res_date;
+	}
     public String getX() {
 		return x;
 	}

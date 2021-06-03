@@ -9,7 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import model.Board;
 import model.Member;
+import model.Member_Card;
+import model.Member_Coupon;
 import model.Reservation;
 import model.hotel4s_hotel_sub4s_reservation4s_join;
 import service.ReservationDaoMybatis;
@@ -24,7 +27,20 @@ public class ReservationController {
 	@RequestMapping("mypageForm")
 	public String mypageForm(Model m, String user_id, HttpSession login) {
 
+		if(login.getAttribute("login")==null || login.getAttribute("login").equals(""))
+		{
+			String msg="로그인이 필요합니다";
+			String url="mainForm";
+			m.addAttribute("msg",msg);
+			m.addAttribute("url",url);
+			return "fps/alert";
+		}
 		Member mem = dao.selectmember(login.getAttribute("login").toString());
+		List<Member_Coupon> cpn=dao.searchcpn(login.getAttribute("login").toString());
+		List<Member_Card> card=dao.searchcard(login.getAttribute("login").toString());
+		
+		m.addAttribute("cpn",cpn);
+		m.addAttribute("card",card);
 		m.addAttribute("mem", mem);
 
 		return "reservation/mypageForm";
@@ -86,7 +102,7 @@ public class ReservationController {
 				}
 			} else {
 				msg = mem.getUser_id() + "님의 비빌번호가 틀립니다.";
-				url = "deleteForm?id=" + mem.getUser_id();
+				url = "reservation/deleteForm?id=" + mem.getUser_id();
 			}
 		}
 		m.addAttribute("url", url);
@@ -114,7 +130,7 @@ public class ReservationController {
 
 		if (!login.equals("admin") && !mem.getPassword().equals(dbMem.getPassword())) {
 			msg = "비밀번호가 틀립니다. 확인 후 다시 거래 하세요.";
-			url = "updateForm?id=" + mem.getUser_id();
+			url = "reservation/updateForm?id=" + mem.getUser_id();
 		} else {
 			result = dao.updatemember(mem);
 			if (result) {
@@ -123,7 +139,7 @@ public class ReservationController {
 				url = "reservation/mypageForm";
 			} else {
 				msg = mem.getUser_id() + "님 회원 정보 수정 실패.";
-				url = "updateForm?id=" + mem.getUser_id();
+				url = "reservation/updateForm?id=" + mem.getUser_id();
 			}
 		}
 
@@ -135,9 +151,16 @@ public class ReservationController {
 	@RequestMapping("reservationConfirmForm")
 	public String reservationConfirmForm(Model m, HttpSession login) {
 
+		if(login.getAttribute("login")==null || login.getAttribute("login").equals(""))
+		{
+			String msg="로그인이 필요합니다";
+			String url="mainForm";
+			m.addAttribute("msg",msg);
+			m.addAttribute("url",url);
+			return "fps/alert";
+		}
 		
 		List<hotel4s_hotel_sub4s_reservation4s_join> res = dao.selectreservation4s(login.getAttribute("login").toString());
-
 		m.addAttribute("res", res);
 
 		return "reservation/reservationConfirmForm";
@@ -204,6 +227,68 @@ public class ReservationController {
 		return "fps/alert";
 	}
 
+	
+	  @RequestMapping("reviewForm") 
+	  public String reviewForm(Model m, int res_seq,HttpSession session) 
+	  {
+		  
+		  hotel4s_hotel_sub4s_reservation4s_join hj=dao.selectreservation4s2(session.getAttribute("login").toString(), res_seq);
+		  
+		  m.addAttribute("hj",hj);
+		  return "reservation/reviewForm";
+	  }
+	  
+	  @RequestMapping("review") 
+	  public String review(Model m, Board blist) 
+	  {
+		  String msg="이미 리뷰를 작성하였습니다";
+		  String url="reservation/reservationConfirmForm";
+		  Board b=dao.reviewsearch(blist.getRes_seq());
+		  if(b!=null)
+		  {
+			  m.addAttribute("msg",msg);
+			  m.addAttribute("url",url);
+			  return "fps/alert";
+		  }
+		  Board bre=dao.reviewres(blist.getRes_seq());
+		  bre.setHotel_grade(blist.getHotel_grade());  
+		  bre.setSubject(blist.getSubject());
+		  bre.setContent(blist.getContent());
+		  dao.reviewinsert(bre);
+		  msg="리뷰작성성공";
+		  url="mainForm";
+		  m.addAttribute("msg",msg);
+		  m.addAttribute("url",url);
+		  return "fps/alert";
+	  }
+	  
+	  @RequestMapping("addcpn") 
+	  public String review(Model m, Member_Coupon cpn,HttpSession session)
+	  {
+		  cpn.setUser_id(session.getAttribute("login").toString());
+		  String msg;
+		  String url;
+		  if(dao.checkcpn(cpn.getCpn_number())==null)
+		  {
+			  msg="쿠폰번호가 잘못되었습니다";
+			  url="reservation/addcpnForm";
+		  }
+		  else if(dao.duplicationcpn(cpn)==null)
+		  {
+			  
+			  dao.insertcpn(cpn);
+			  msg="쿠폰등록이 성공적으로 완료되었습니다";
+			  url="reservation/mypageForm";
+		  }
+		  else
+		  {
+			  msg="이미 등록된 쿠폰입니다";
+			  url="reservation/addcpnForm";
+		  }
+		  m.addAttribute("msg",msg);
+		  m.addAttribute("url",url);
+		  return "fps/alert";
+	  }
 
 
 }

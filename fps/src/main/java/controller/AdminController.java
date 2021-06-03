@@ -95,6 +95,16 @@ public class AdminController {
 		return "admin/hlistForm";
 	}
 	
+	@RequestMapping("searchForm") 
+	private String searchForm(Model m, String hotel_name) {
+		
+		
+		List<Hotel4s> list = dao.search(hotel_name);
+		m.addAttribute("list",list);
+		
+		return "admin/searchForm"; 
+	}
+	
 	@RequestMapping("hupdateForm")
 	private String hupdateForm(Model m, String hotel_code) {
 		

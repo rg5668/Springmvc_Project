@@ -12,7 +12,7 @@
 <body>
 <!-- È¸¿ø Å»Åð ÆûÀÔ´Ï´Ù -->
 <div align="center">
-	<img src="/ActionPro/w3images/logo.png" style="height: 70px; width : 70px; background-color: black; margin-top: 30px; margin-bottom: 10px">
+	<img src="<%=request.getContextPath() %>/w3images/logo.png" style="height: 70px; width : 70px; background-color: black; margin-top: 30px; margin-bottom: 10px">
 	</div>
 	
 <h4 class="w3-center" style="margin-bottom: 10px"><b>È¸¿ø Å»Åð</b></h4>

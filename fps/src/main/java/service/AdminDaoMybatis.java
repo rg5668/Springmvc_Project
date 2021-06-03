@@ -81,4 +81,8 @@ public class AdminDaoMybatis {
 	public int update(Member member) {
 		return sqlSession.getMapper(AdminMapper.class).update(member);
 	}
+
+	public List<Hotel4s> search(String hotel_name) {
+		return sqlSession.getMapper(AdminMapper.class).search(hotel_name);
+	}
 }
